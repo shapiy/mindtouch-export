@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    // Use jcenter for resolving dependencies.
+    jcenter()
+}
+
+dependencies {
+    // These dependencies are used by the application.
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.12.3'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.3'
+    implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'info.picocli:picocli:4.6.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.14.0'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+
+    // Use JUnit Jupiter API for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+
+    // Use JUnit Jupiter Engine for testing.
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+}
+
+application {
+    mainClassName = 'TEMPLATE.App'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': application.mainClassName
+    }
+    baseName = rootProject.name
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
