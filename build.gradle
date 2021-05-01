@@ -26,7 +26,7 @@ dependencies {
 }
 
 application {
-    mainClassName = 'TEMPLATE.App'
+    mainClassName = 'mindtouchexport.App'
 }
 
 test {
