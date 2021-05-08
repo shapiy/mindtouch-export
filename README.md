@@ -7,10 +7,16 @@
 ## Usage
 
 ```bash
-Usage: TEMPLATE
+Usage: mindtouch-export [-hV] -k=<key> -o=<outputDir> -s=<secret> -u=<hostUrl>
+Export content from MindTouch
+  -h, --help                 Show this help message and exit.
+  -k, --key=<key>            Server token key
+  -o, --output=<outputDir>   Output directory
+  -s, --secret=<secret>      Server token secret
+  -u, --host-url=<hostUrl>   Host URL
+  -V, --version              Print version information and exit.
 ```
 
 ### Development notes
 
-* Run the application in development: `./gradlew run --args="-i input -o output"`
 * Gradle application plugin docs - https://docs.gradle.org/current/userguide/application_plugin.html 
