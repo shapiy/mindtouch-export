@@ -132,7 +132,7 @@ public class App implements Callable<Integer> {
                         .stream()
                         .filter(el -> jobId.equals(el.attributeValue("id")))
                         .findFirst();
-                if (jobOptional.isEmpty()) {
+                if (!jobOptional.isPresent()) {
                     logger.warn("Job with id does not exist: {}", jobId);
                     return null;
                 }
