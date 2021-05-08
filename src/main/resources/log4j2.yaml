@@ -1,6 +1,6 @@
 Configuration:
   status: warn
-  name: TEMPLATE
+  name: mindtouchexport
   thresholdFilter:
     level: debug
   appenders:
@@ -11,7 +11,7 @@ Configuration:
 
   Loggers:
     logger:
-      - name: TEMPLATE
+      - name: mindtouchexport
         additivity: false
         level: info
         AppenderRef:
